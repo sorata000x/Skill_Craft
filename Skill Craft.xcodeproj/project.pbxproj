@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9799B9012C6821280043C1EE /* Skill_CraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B9002C6821280043C1EE /* Skill_CraftApp.swift */; };
+		9799B9032C6821280043C1EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B9022C6821280043C1EE /* ContentView.swift */; };
+		9799B9052C68212A0043C1EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9799B9042C68212A0043C1EE /* Assets.xcassets */; };
+		9799B9082C68212A0043C1EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9799B9072C68212A0043C1EE /* Preview Assets.xcassets */; };
+		9799B9122C68212B0043C1EE /* Skill_CraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B9112C68212B0043C1EE /* Skill_CraftTests.swift */; };
+		9799B91C2C68212B0043C1EE /* Skill_CraftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B91B2C68212B0043C1EE /* Skill_CraftUITests.swift */; };
+		9799B91E2C68212B0043C1EE /* Skill_CraftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B91D2C68212B0043C1EE /* Skill_CraftUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9799B90E2C68212B0043C1EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9799B8F52C6821280043C1EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9799B8FC2C6821280043C1EE;
+			remoteInfo = "Skill Craft";
+		};
+		9799B9182C68212B0043C1EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9799B8F52C6821280043C1EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9799B8FC2C6821280043C1EE;
+			remoteInfo = "Skill Craft";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9799B8FD2C6821280043C1EE /* Skill Craft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skill Craft.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9799B9002C6821280043C1EE /* Skill_CraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill_CraftApp.swift; sourceTree = "<group>"; };
+		9799B9022C6821280043C1EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9799B9042C68212A0043C1EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9799B9072C68212A0043C1EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9799B90D2C68212B0043C1EE /* Skill CraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Skill CraftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9799B9112C68212B0043C1EE /* Skill_CraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill_CraftTests.swift; sourceTree = "<group>"; };
+		9799B9172C68212B0043C1EE /* Skill CraftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Skill CraftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9799B91B2C68212B0043C1EE /* Skill_CraftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill_CraftUITests.swift; sourceTree = "<group>"; };
+		9799B91D2C68212B0043C1EE /* Skill_CraftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill_CraftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9799B8FA2C6821280043C1EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9799B90A2C68212B0043C1EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9799B9142C68212B0043C1EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9799B8F42C6821280043C1EE = {
+			isa = PBXGroup;
+			children = (
+				9799B8FF2C6821280043C1EE /* Skill Craft */,
+				9799B9102C68212B0043C1EE /* Skill CraftTests */,
+				9799B91A2C68212B0043C1EE /* Skill CraftUITests */,
+				9799B8FE2C6821280043C1EE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9799B8FE2C6821280043C1EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9799B8FD2C6821280043C1EE /* Skill Craft.app */,
+				9799B90D2C68212B0043C1EE /* Skill CraftTests.xctest */,
+				9799B9172C68212B0043C1EE /* Skill CraftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9799B8FF2C6821280043C1EE /* Skill Craft */ = {
+			isa = PBXGroup;
+			children = (
+				9799B9002C6821280043C1EE /* Skill_CraftApp.swift */,
+				9799B9022C6821280043C1EE /* ContentView.swift */,
+				9799B9042C68212A0043C1EE /* Assets.xcassets */,
+				9799B9062C68212A0043C1EE /* Preview Content */,
+			);
+			path = "Skill Craft";
+			sourceTree = "<group>";
+		};
+		9799B9062C68212A0043C1EE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9799B9072C68212A0043C1EE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9799B9102C68212B0043C1EE /* Skill CraftTests */ = {
+			isa = PBXGroup;
+			children = (
+				9799B9112C68212B0043C1EE /* Skill_CraftTests.swift */,
+			);
+			path = "Skill CraftTests";
+			sourceTree = "<group>";
+		};
+		9799B91A2C68212B0043C1EE /* Skill CraftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9799B91B2C68212B0043C1EE /* Skill_CraftUITests.swift */,
+				9799B91D2C68212B0043C1EE /* Skill_CraftUITestsLaunchTests.swift */,
+			);
+			path = "Skill CraftUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9799B8FC2C6821280043C1EE /* Skill Craft */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9799B9212C68212B0043C1EE /* Build configuration list for PBXNativeTarget "Skill Craft" */;
+			buildPhases = (
+				9799B8F92C6821280043C1EE /* Sources */,
+				9799B8FA2C6821280043C1EE /* Frameworks */,
+				9799B8FB2C6821280043C1EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Skill Craft";
+			productName = "Skill Craft";
+			productReference = 9799B8FD2C6821280043C1EE /* Skill Craft.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9799B90C2C68212B0043C1EE /* Skill CraftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9799B9242C68212B0043C1EE /* Build configuration list for PBXNativeTarget "Skill CraftTests" */;
+			buildPhases = (
+				9799B9092C68212B0043C1EE /* Sources */,
+				9799B90A2C68212B0043C1EE /* Frameworks */,
+				9799B90B2C68212B0043C1EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9799B90F2C68212B0043C1EE /* PBXTargetDependency */,
+			);
+			name = "Skill CraftTests";
+			productName = "Skill CraftTests";
+			productReference = 9799B90D2C68212B0043C1EE /* Skill CraftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9799B9162C68212B0043C1EE /* Skill CraftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9799B9272C68212B0043C1EE /* Build configuration list for PBXNativeTarget "Skill CraftUITests" */;
+			buildPhases = (
+				9799B9132C68212B0043C1EE /* Sources */,
+				9799B9142C68212B0043C1EE /* Frameworks */,
+				9799B9152C68212B0043C1EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9799B9192C68212B0043C1EE /* PBXTargetDependency */,
+			);
+			name = "Skill CraftUITests";
+			productName = "Skill CraftUITests";
+			productReference = 9799B9172C68212B0043C1EE /* Skill CraftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9799B8F52C6821280043C1EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					9799B8FC2C6821280043C1EE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					9799B90C2C68212B0043C1EE = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 9799B8FC2C6821280043C1EE;
+					};
+					9799B9162C68212B0043C1EE = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 9799B8FC2C6821280043C1EE;
+					};
+				};
+			};
+			buildConfigurationList = 9799B8F82C6821280043C1EE /* Build configuration list for PBXProject "Skill Craft" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9799B8F42C6821280043C1EE;
+			productRefGroup = 9799B8FE2C6821280043C1EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9799B8FC2C6821280043C1EE /* Skill Craft */,
+				9799B90C2C68212B0043C1EE /* Skill CraftTests */,
+				9799B9162C68212B0043C1EE /* Skill CraftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9799B8FB2C6821280043C1EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9799B9082C68212A0043C1EE /* Preview Assets.xcassets in Resources */,
+				9799B9052C68212A0043C1EE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9799B90B2C68212B0043C1EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9799B9152C68212B0043C1EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9799B8F92C6821280043C1EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9799B9032C6821280043C1EE /* ContentView.swift in Sources */,
+				9799B9012C6821280043C1EE /* Skill_CraftApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9799B9092C68212B0043C1EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9799B9122C68212B0043C1EE /* Skill_CraftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9799B9132C68212B0043C1EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9799B91C2C68212B0043C1EE /* Skill_CraftUITests.swift in Sources */,
+				9799B91E2C68212B0043C1EE /* Skill_CraftUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9799B90F2C68212B0043C1EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9799B8FC2C6821280043C1EE /* Skill Craft */;
+			targetProxy = 9799B90E2C68212B0043C1EE /* PBXContainerItemProxy */;
+		};
+		9799B9192C68212B0043C1EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9799B8FC2C6821280043C1EE /* Skill Craft */;
+			targetProxy = 9799B9182C68212B0043C1EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9799B91F2C68212B0043C1EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9799B9202C68212B0043C1EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9799B9222C68212B0043C1EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Skill Craft/Preview Content\"";
+				DEVELOPMENT_TEAM = JXM33MC824;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amor-fati.Skill-Craft";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9799B9232C68212B0043C1EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Skill Craft/Preview Content\"";
+				DEVELOPMENT_TEAM = JXM33MC824;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amor-fati.Skill-Craft";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9799B9252C68212B0043C1EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXM33MC824;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amor-fati.Skill-CraftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Skill Craft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Skill Craft";
+			};
+			name = Debug;
+		};
+		9799B9262C68212B0043C1EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXM33MC824;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amor-fati.Skill-CraftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Skill Craft.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Skill Craft";
+			};
+			name = Release;
+		};
+		9799B9282C68212B0043C1EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXM33MC824;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amor-fati.Skill-CraftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Skill Craft";
+			};
+			name = Debug;
+		};
+		9799B9292C68212B0043C1EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXM33MC824;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amor-fati.Skill-CraftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Skill Craft";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9799B8F82C6821280043C1EE /* Build configuration list for PBXProject "Skill Craft" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9799B91F2C68212B0043C1EE /* Debug */,
+				9799B9202C68212B0043C1EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9799B9212C68212B0043C1EE /* Build configuration list for PBXNativeTarget "Skill Craft" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9799B9222C68212B0043C1EE /* Debug */,
+				9799B9232C68212B0043C1EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9799B9242C68212B0043C1EE /* Build configuration list for PBXNativeTarget "Skill CraftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9799B9252C68212B0043C1EE /* Debug */,
+				9799B9262C68212B0043C1EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9799B9272C68212B0043C1EE /* Build configuration list for PBXNativeTarget "Skill CraftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9799B9282C68212B0043C1EE /* Debug */,
+				9799B9292C68212B0043C1EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9799B8F52C6821280043C1EE /* Project object */;
+}
