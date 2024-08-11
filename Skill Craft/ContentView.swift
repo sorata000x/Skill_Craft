@@ -29,6 +29,7 @@ import SwiftUI
 
 struct TaskRow: View {
     @Binding var task: Task
+    @StateObject private var viewModel = TaskViewModel() // Reference to ViewModel
     
     var body: some View {
         HStack {
@@ -48,13 +49,21 @@ struct TaskRow: View {
                 .foregroundColor(task.isCompleted ? .gray : .primary)
             
             Spacer()
-            
-            .buttonStyle(PlainButtonStyle()) // Disable button's default style to avoid background highlight
         }
         .padding(.vertical, 4)
         .contentShape(Rectangle()) // Make the entire row tappable for selection purposes, but not affecting the checkbox
+        .swipeActions(edge: .trailing) { // Add swipe actions
+            Button(role: .destructive) {
+                if let index = viewModel.tasks.firstIndex(where: { $0.id == task.id }) {
+                    viewModel.tasks.remove(at: index)
+                }
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
     }
 }
+
 
 struct CustomProgressBar: View {
     var value: Double
@@ -81,6 +90,7 @@ struct ItemRow: View {
     var exp: String
     var level: String
     var progressValue: Double
+    @StateObject private var viewModel = TaskViewModel() // Reference to ViewModel
     
     var body: some View {
         HStack {
@@ -113,13 +123,21 @@ struct ItemRow: View {
             }
             
         }
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
         .padding(.vertical, 0)
         .contentShape(Rectangle())
+        .swipeActions(edge: .trailing) { // Add swipe actions
+            Button(role: .destructive) {
+                // Implement deletion action here, if using TaskViewModel or other data source
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
     }
 }
+
 
 struct CongratulationCard: View {
     var body: some View {
