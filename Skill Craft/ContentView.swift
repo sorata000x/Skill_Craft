@@ -8,6 +8,191 @@
 import Foundation
 import SwiftUI
 
+// ========== Database ===========
+
+import FirebaseFirestore
+
+class FirestoreManager: ObservableObject {
+    private var db = Firestore.firestore()
+
+    // Fetch tasks from Firestore
+    func fetchTasks(completion: @escaping ([Task]?) -> Void) {
+        db.collection("tasks").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching tasks: \(error.localizedDescription)")
+                completion(nil)
+            } else {
+                let tasks = snapshot?.documents.compactMap { doc -> Task? in
+                    try? doc.data(as: Task.self)
+                }
+                completion(tasks)
+            }
+        }
+    }
+
+    // Save a new task to Firestore
+    func saveTask(task: Task) {
+        do {
+            if let id = task.id {
+                try db.collection("tasks").document(id).setData(from: task)
+            } else {
+                let newDoc = try db.collection("tasks").addDocument(from: task)
+                // Update task ID after saving
+                var savedTask = task
+                savedTask.id = newDoc.documentID
+            }
+        } catch {
+            print("Error saving task: \(error.localizedDescription)")
+        }
+    }
+
+    // Delete a task from Firestore
+    func deleteTask(taskID: String) {
+        db.collection("tasks").document(taskID).delete { error in
+            if let error = error {
+                print("Error deleting task: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    // Fetch items from Firestore
+    func fetchItems(completion: @escaping ([Item]?) -> Void) {
+        db.collection("items").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching items: \(error.localizedDescription)")
+                completion(nil)
+            } else {
+                let items = snapshot?.documents.compactMap { doc -> Item? in
+                    try? doc.data(as: Item.self)
+                }
+                completion(items)
+            }
+        }
+    }
+
+    // Save a new item to Firestore
+    func saveItem(item: Item) {
+        do {
+            if let id = item.id {
+                try db.collection("items").document(id).setData(from: item)
+            } else {
+                let newDoc = try db.collection("items").addDocument(from: item)
+                // Update item ID after saving
+                var savedItem = item
+                savedItem.id = newDoc.documentID
+            }
+        } catch {
+            print("Error saving item: \(error.localizedDescription)")
+        }
+    }
+
+    // Delete an item from Firestore
+    func deleteItem(itemID: String) {
+        db.collection("items").document(itemID).delete { error in
+            if let error = error {
+                print("Error deleting item: \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+// ========== Authentication ==========
+
+import FirebaseAuth
+
+class AuthViewModel: ObservableObject {
+    @Published var isSignedIn: Bool = false
+    @Published var userEmail: String?
+
+    init() {
+        self.isSignedIn = Auth.auth().currentUser != nil
+        self.userEmail = Auth.auth().currentUser?.email
+    }
+
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            if let user = authResult?.user {
+                self.isSignedIn = true
+                self.userEmail = user.email
+            } else if let error = error {
+                print("Error signing in: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func signUp(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            if let user = authResult?.user {
+                self.isSignedIn = true
+                self.userEmail = user.email
+            } else if let error = error {
+                print("Error signing up: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            self.isSignedIn = false
+            self.userEmail = nil
+        } catch let error as NSError {
+            print("Error signing out: \(error.localizedDescription)")
+        }
+    }
+}
+
+struct AuthView: View {
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var isSignUp = false
+    @EnvironmentObject var authViewModel: AuthViewModel
+
+    var body: some View {
+        VStack {
+            TextField("Email", text: $email)
+                .autocapitalization(.none)
+                .padding()
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(10)
+                .padding(.bottom, 20)
+
+            SecureField("Password", text: $password)
+                .padding()
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(10)
+                .padding(.bottom, 20)
+
+            Button(action: {
+                if isSignUp {
+                    authViewModel.signUp(email: email, password: password)
+                } else {
+                    authViewModel.signIn(email: email, password: password)
+                }
+            }) {
+                Text(isSignUp ? "Sign Up" : "Sign In")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+
+            Button(action: {
+                isSignUp.toggle()
+            }) {
+                Text(isSignUp ? "Already have an account? Sign In" : "Don't have an account? Sign Up")
+                    .foregroundColor(.blue)
+                    .padding(.top, 20)
+            }
+        }
+        .padding()
+    }
+}
+
+
 // ========== GPT ===========
 
 struct FunctionCallArguments: Codable {
@@ -196,14 +381,36 @@ class GPTService {
 
 // ======== Task Page ========
 
-struct Task: Identifiable {
-    let id = UUID()
+struct Task: Identifiable, Codable {
+    @DocumentID var id: String?
     var title: String
-    var isCompleted: Bool
+    var isCompleted: Bool {
+        didSet {
+            saveChanges()
+        }
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case isCompleted
+    }
+
+    func saveChanges() {
+        guard let id = id else { return }
+        let db = Firestore.firestore()
+        do {
+            try db.collection("tasks").document(id).setData(from: self)
+        } catch let error {
+            print("Error saving task: \(error.localizedDescription)")
+        }
+    }
 }
 
 class TaskViewModel: ObservableObject {
     @Published var tasks: [Task]
+    private var firestoreManager = FirestoreManager()
+    
     init() {
         #if DEBUG
         // Default values for debugging
@@ -218,16 +425,28 @@ class TaskViewModel: ObservableObject {
         // Empty array or production data
         tasks = []
         #endif
+        fetchTasks()
     }
     
-    func addTask(title: String) {
-        if !title.isEmpty {
-            let newTask = Task(title: title, isCompleted: false)
-            tasks.append(newTask)
+    func fetchTasks() {
+       firestoreManager.fetchTasks { [weak self] tasks in
+           if let tasks = tasks {
+               self?.tasks = tasks
+           }
         }
     }
-    
+
+    func addTask(title: String) {
+        var newTask = Task(title: title, isCompleted: false)
+        firestoreManager.saveTask(task: newTask)
+        tasks.append(newTask)
+    }
+
     func removeTask(at offsets: IndexSet) {
+        let taskIDsToDelete = offsets.map { tasks[$0].id! }
+        for taskID in taskIDsToDelete {
+            firestoreManager.deleteTask(taskID: taskID)
+        }
         tasks.remove(atOffsets: offsets)
     }
 }
@@ -239,17 +458,12 @@ struct TaskRow: View {
     var body: some View {
         HStack {
             // Checkbox Button
-            // action
-            // - mark task completed
-            // - onTaskCompleted()
-            Button(
-                action: {
-                    task.isCompleted.toggle()
-                    if task.isCompleted {
-                        onTaskCompleted()
-                    }
+            Button(action: {
+                task.isCompleted.toggle()
+                if task.isCompleted {
+                    onTaskCompleted()
+                }
             }) {
-                // Check box
                 Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
                     .font(.system(size: 24)) // Size
                     .foregroundColor(task.isCompleted ? .blue : .gray)
@@ -270,12 +484,20 @@ struct TaskRow: View {
 
 // ======== Item page ========
 
-class Item: ObservableObject, Identifiable {
-    let id = UUID()
+class Item: ObservableObject, Identifiable, Codable {
+    @DocumentID var id: String?
     @Published var name: String
     @Published var currentEXP: Int
     @Published var maxEXP: Int
     @Published var level: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case currentEXP
+        case maxEXP
+        case level
+    }
     
     init(name: String, currentEXP: Int, maxEXP: Int, level: Int) {
         self.name = name
@@ -283,10 +505,31 @@ class Item: ObservableObject, Identifiable {
         self.maxEXP = maxEXP
         self.level = level
     }
+    
+    // Custom initializer for decoding
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.currentEXP = try container.decode(Int.self, forKey: .currentEXP)
+        self.maxEXP = try container.decode(Int.self, forKey: .maxEXP)
+        self.level = try container.decode(Int.self, forKey: .level)
+    }
+    
+    // Custom encoder
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(currentEXP, forKey: .currentEXP)
+        try container.encode(maxEXP, forKey: .maxEXP)
+        try container.encode(level, forKey: .level)
+    }
 }
 
 class ItemsViewModel: ObservableObject {
     @Published var items: [Item]
+    private var firestoreManager = FirestoreManager()
 
     init() {
         #if DEBUG
@@ -300,14 +543,28 @@ class ItemsViewModel: ObservableObject {
         // Empty array or production data
         items = []
         #endif
+        fetchItems()
+    }
+    
+    func fetchItems() {
+        firestoreManager.fetchItems { [weak self] items in
+            if let items = items {
+                self?.items = items
+            }
+        }
     }
     
     func addItem(name: String) {
         let newItem = Item(name: name, currentEXP: 0, maxEXP: 1000, level: 10)
+        firestoreManager.saveItem(item: newItem)
         items.append(newItem)
     }
     
     func removeItem(at offsets: IndexSet) {
+        let itemIDsToDelete = offsets.compactMap { items[$0].id }
+        for itemID in itemIDsToDelete {
+            firestoreManager.deleteItem(itemID: itemID)
+        }
         items.remove(atOffsets: offsets)
     }
     
@@ -381,6 +638,18 @@ struct ItemRow: View {
 }
 
 struct ContentView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+
+    var body: some View {
+        if authViewModel.isSignedIn {
+            MainView() // Replace with your main view
+        } else {
+            AuthView()
+        }
+    }
+}
+
+struct MainView: View {
     @State private var selectedTab = 1
     // ----- Task Page -----
     @StateObject private var viewModel = TaskViewModel()
@@ -566,4 +835,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(AuthViewModel())
 }
+

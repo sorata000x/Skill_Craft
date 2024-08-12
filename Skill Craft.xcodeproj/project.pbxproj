@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970295D92C6A9ADC00C29CFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 970295D82C6A9ADC00C29CFE /* GoogleService-Info.plist */; };
+		970295DC2C6A9E5C00C29CFE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 970295DB2C6A9E5C00C29CFE /* FirebaseAnalytics */; };
+		970295DE2C6A9E5C00C29CFE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 970295DD2C6A9E5C00C29CFE /* FirebaseAuth */; };
+		970295E02C6A9E5C00C29CFE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 970295DF2C6A9E5C00C29CFE /* FirebaseDatabase */; };
+		970295E22C6A9E5C00C29CFE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 970295E12C6A9E5C00C29CFE /* FirebaseFirestore */; };
+		970295E42C6A9E5C00C29CFE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 970295E32C6A9E5C00C29CFE /* FirebaseStorage */; };
 		9799B9012C6821280043C1EE /* Skill_CraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B9002C6821280043C1EE /* Skill_CraftApp.swift */; };
 		9799B9032C6821280043C1EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799B9022C6821280043C1EE /* ContentView.swift */; };
 		9799B9052C68212A0043C1EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9799B9042C68212A0043C1EE /* Assets.xcassets */; };
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		970295D82C6A9ADC00C29CFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9799B8FD2C6821280043C1EE /* Skill Craft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skill Craft.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9799B9002C6821280043C1EE /* Skill_CraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill_CraftApp.swift; sourceTree = "<group>"; };
 		9799B9022C6821280043C1EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +58,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970295E02C6A9E5C00C29CFE /* FirebaseDatabase in Frameworks */,
+				970295E22C6A9E5C00C29CFE /* FirebaseFirestore in Frameworks */,
+				970295DC2C6A9E5C00C29CFE /* FirebaseAnalytics in Frameworks */,
+				970295E42C6A9E5C00C29CFE /* FirebaseStorage in Frameworks */,
+				970295DE2C6A9E5C00C29CFE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +106,7 @@
 		9799B8FF2C6821280043C1EE /* Skill Craft */ = {
 			isa = PBXGroup;
 			children = (
+				970295D82C6A9ADC00C29CFE /* GoogleService-Info.plist */,
 				9799B9002C6821280043C1EE /* Skill_CraftApp.swift */,
 				9799B9022C6821280043C1EE /* ContentView.swift */,
 				9799B9042C68212A0043C1EE /* Assets.xcassets */,
@@ -143,6 +156,13 @@
 			dependencies = (
 			);
 			name = "Skill Craft";
+			packageProductDependencies = (
+				970295DB2C6A9E5C00C29CFE /* FirebaseAnalytics */,
+				970295DD2C6A9E5C00C29CFE /* FirebaseAuth */,
+				970295DF2C6A9E5C00C29CFE /* FirebaseDatabase */,
+				970295E12C6A9E5C00C29CFE /* FirebaseFirestore */,
+				970295E32C6A9E5C00C29CFE /* FirebaseStorage */,
+			);
 			productName = "Skill Craft";
 			productReference = 9799B8FD2C6821280043C1EE /* Skill Craft.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 9799B8F42C6821280043C1EE;
+			packageReferences = (
+				970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 9799B8FE2C6821280043C1EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +256,7 @@
 			files = (
 				9799B9082C68212A0043C1EE /* Preview Assets.xcassets in Resources */,
 				9799B9052C68212A0043C1EE /* Assets.xcassets in Resources */,
+				970295D92C6A9ADC00C29CFE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +612,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		970295DB2C6A9E5C00C29CFE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		970295DD2C6A9E5C00C29CFE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		970295DF2C6A9E5C00C29CFE /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		970295E12C6A9E5C00C29CFE /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		970295E32C6A9E5C00C29CFE /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 970295DA2C6A9E5B00C29CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9799B8F52C6821280043C1EE /* Project object */;
 }
