@@ -219,6 +219,17 @@ class TaskViewModel: ObservableObject {
         tasks = []
         #endif
     }
+    
+    func addTask(title: String) {
+        if !title.isEmpty {
+            let newTask = Task(title: title, isCompleted: false)
+            tasks.append(newTask)
+        }
+    }
+    
+    func removeTask(at offsets: IndexSet) {
+        tasks.remove(atOffsets: offsets)
+    }
 }
 
 struct TaskRow: View {
@@ -281,9 +292,9 @@ class ItemsViewModel: ObservableObject {
         #if DEBUG
         // Default values for debugging
         items = [
-            Item(name: "Problem Solving Mastery", currentEXP: 0, maxEXP: 1000, level: 10),
-            Item(name: "Algorithm Mastery", currentEXP: 0, maxEXP: 1000, level: 10),
-            Item(name: "Data Structure Mastery", currentEXP: 0, maxEXP: 1000, level: 10)
+            Item(name: "Problem Solving", currentEXP: 0, maxEXP: 1000, level: 10),
+            Item(name: "Algorithm", currentEXP: 0, maxEXP: 1000, level: 10),
+            Item(name: "Data Structure", currentEXP: 0, maxEXP: 1000, level: 10)
         ]
         #else
         // Empty array or production data
@@ -338,10 +349,9 @@ struct ItemRow: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "square.fill")
-                .resizable()
-                .frame(width: 64, height: 64)
-                .background(Color.gray)
+            //Image(systemName: "square.fill")
+            //    .resizable()
+            //    .frame(width: 64, height: 64)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(item.name)
@@ -378,6 +388,7 @@ struct ContentView: View {
     @State private var newTaskTitle = "" // State to store the new task name
     @State private var showCongratulationPopup = false // State to show the congratulation popup
     @State private var congratulationMessage = "Congratulations for completing the task!"
+    @FocusState private var isTaskFieldFocused: Bool // Focus state for the TextField
     // ----- Items Page -----
     @StateObject private var itemsViewModel = ItemsViewModel()
         
@@ -415,13 +426,6 @@ struct ContentView: View {
                         .transition(.opacity)
                         .padding(.bottom, 100)
                 }
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-                        withAnimation {
-                            showCongratulationPopup = false
-                        }
-                    }
-                }
             }
         }
     }
@@ -441,6 +445,7 @@ struct ContentView: View {
                                 handleTaskCompletion(taskName: task.title)
                             })
                         }
+                        .onDelete(perform: viewModel.removeTask)
                     }
                     
                     // Completed Section
@@ -457,6 +462,7 @@ struct ContentView: View {
                                 handleTaskCompletion(taskName: task.title)
                             })
                         }
+                        .onDelete(perform: viewModel.removeTask)
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
@@ -464,7 +470,12 @@ struct ContentView: View {
                 
                 if isAddingTask {
                     // Custom TextField for adding a new task
-                    TextField("Enter task name", text: $newTaskTitle, onCommit: addTask)
+                    TextField("Enter task name", text: $newTaskTitle, onCommit: {
+                        viewModel.addTask(title: newTaskTitle)
+                        isAddingTask = false
+                        newTaskTitle = ""
+                    })
+                        .focused($isTaskFieldFocused)
                         .padding(.vertical, 12) // Increase vertical padding
                         .padding(.horizontal, 20) // Increase horizontal padding
                         .background(Color(UIColor.systemGray6)) // Use a light background color
@@ -483,6 +494,7 @@ struct ContentView: View {
                     // "+ Add a Task" Button
                     Button(action: {
                         isAddingTask = true
+                        isTaskFieldFocused = true
                     }) {
                         HStack {
                             Image(systemName: "plus.circle.fill")
@@ -544,16 +556,11 @@ struct ContentView: View {
         withAnimation {
             showCongratulationPopup = true
         }
-    }
-    
-    private func addTask() {
-        // Add the new task to the list
-        if !newTaskTitle.isEmpty {
-            viewModel.tasks.append(Task(title: newTaskTitle, isCompleted: false))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            withAnimation {
+                showCongratulationPopup = false
+            }
         }
-        // Reset the state
-        newTaskTitle = ""
-        isAddingTask = false
     }
 }
 
